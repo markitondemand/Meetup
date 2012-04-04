@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Boulder Web Dev Meetup Mad Lib Program-A-Thon</title>
+	<link href="Content/css/Base.css" rel="Stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+
+<!-- This is where the MadLib content will eventually go -->
+<div id="madLibContent"></div>
+
+<!-- This file is required and can not be commented out -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script>
+	/***************************************/
+	/*
+	This will prevent jQuery from taking over the '$' if you are using a different
+	library, feel free to uncomment this out if you want to use a different library.
+	*/
+	/***************************************/
+	// jQuery.noConflict();	
+</script>
+
+<!-- This file is required and can not be commented out -->
+<script src="Content/js/MadLibEngine.js"></script>
+
+<!-- SIMPLE OPTION:  UNCOMMENT THIS SECTION TO USE THE STANDARD MADLIB-->
+<script src="http://dev.markitondemand.com/Meetup/MadLib/GetMadLibJS"></script>
+<script src="http://dev.markitondemand.com/Meetup/MadLib/GetMadLibWordsJS"></script>
+<script>
+	/*    Example		*/
+
+	//This is an override of the postFillHandler to add small delay when
+	//filling in the madlib words, this is a great place to get creative
+	madLibEngine.postFillHandler = function (element)
+	{
+		setTimeout(function () { madLibEngine.fillNextWord(); }, 1000);
+	}
+
+	madLibEngine.setupWordCollection();
+
+	madLibEngine.addAndFillTemplate();
+</script>
+
+
+<!-- OR -->
+
+<!-- FUN/API OPTION: UNCOMMENT THIS SECTION TO USE APIS -->
+<!--<script src="Content/js/Util.js"></script>
+<script>
+
+	// if you want you can create your own local override of the handle preword call.
+	// this method has examples of all the API calls, you can add your own custom calls and handlers if you wish.
+	// this is where you will choose what types of prefill searches you'd like to do.
+	// this is where you will choose what types of prefill searches you'd like to do.
+	Util.HandleWordPreFill = function (Element, CurrentWord, WordCategory)
+	{
+		var context = this;
+
+		if (CurrentWord)
+		{
+			// below are sample API calls that you can use. You will need to specify your own success and error function,
+			// but we have gone ahead and gotten the API calls plugged in for you ahead of time.
+
+			this.BingImageSearch(Element, CurrentWord, context.BingImageSearchCompleted, function () { madLibEngine.fillNextWord(); });
+			// this.YouTubeVideoSearch(Element, CurrentWord, context.YouTubeVideoSearchCompleted, function () { madLibEngine.fillNextWord(); });
+			// this.iTunesSeachAPI(Element, CurrentWord, function(Element, CurrentWord, Response){console.log(arguments); madLibEngine.fillNextWord();}, function(){ madLibEngine.fillNextWord(); });
+			// this.IMDBSearchAPI(Element, CurrentWord, function(Element, CurrentWord, Response){console.log(arguments); madLibEngine.fillNextWord();}, function(){ madLibEngine.fillNextWord(); });
+			// this.TwitterSearch(Element, CurrentWord, context.TwitterSearchCompleted, function(){ madLibEngine.fillNextWord(); });
+			// this.NetflixSearchAPI(Element, CurrentWord, functionElement, CurrentWord, Response(){console.log(arguments); madLibEngine.fillNextWord();}, function(){ madLibEngine.fillNextWord(); });
+			// this.LastFMAPISearch(Element, CurrentWord, function (Element, CurrentWord, Response) { console.log(arguments); madLibEngine.fillNextWord(); }, function () { madLibEngine.fillNextWord(); });
+		}
+		else
+		{
+			return true;
+		}
+
+		// return true to just add the word as text.
+		// WARNING: if using a preprocess search API make sure you return false in this method.
+		// return false so it doesn't just automatically add the word and not do preprocessing.
+		// this means it will not do anything to the span so you will need to handle the replacement yourself.
+		return false;
+	};
+	
+	// this is where you handle what happens after the word fills.
+	// called immediately after prefill.
+	Util.HandleWordPostFill = function (Element)
+	{
+		setTimeout(function(){madLibEngine.fillNextWord()}, 1000);
+	};
+
+	$(document).ready(function ()
+	{
+		Util.Initialize("BC1F1DBF0739F031833E8B65B3C8758F4CC9A02E", "005a62f70d2f51d694717cbaacf16ee6", "nx2pqcdk7kjyjt23x3mzd292");
+	});
+
+</script>-->
+
+</body>
+</html>

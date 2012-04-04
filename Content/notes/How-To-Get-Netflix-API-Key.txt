@@ -1,0 +1,35 @@
+***************
+****SUMMARY****
+***************
+
+The Netflix title catalog autocomplete API allows you pass in a search term, and retrieve movie titles.
+
+************
+***STEP 1***
+************
+
+Go to: http://developer.netflix.com/member/register
+
+Register for a developer account through Mashery. This account is separate from any Netflix subscriber account you may have. During registration, you will apply for an API key. The API key is your application's unique identifier when making API calls. (Note: Please be sure to whitelist email from both mashery.com and netflix.com before you sign up for an account so the verification email does not get caught in your spam filter.)
+
+************
+***STEP 2***
+************
+
+Login, and goto http://developer.netflix.com/apps/mykeys to get your Netflix API Key.
+
+************
+***STEP 3***
+************
+
+Specify the Netflix API key as a parameter of the Util Initialize function.
+
+************
+***STEP 4***
+************
+
+You're ready to use the Netflix Autocomplete API! 
+
+You can read the reference here: http://developer.netflix.com/docs/REST_API_Reference#0_48417
+
+	

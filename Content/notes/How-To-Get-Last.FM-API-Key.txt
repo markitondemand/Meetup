@@ -1,0 +1,10 @@
+﻿Login to Last.fm or create account (you can create an account using your facebook)
+
+go to http://www.last.fm/api/rest
+
+click "Your API Account"
+
+fill in the necessary fields
+
+Submit the form and grab your API Key
+
